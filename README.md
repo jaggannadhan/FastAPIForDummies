@@ -21,6 +21,7 @@ FastAPI is a modern, high-performance Python web framework designed for building
 # What is the file structure of FastAPI?
 The file structure of a FastAPI project is typically lightweight and flexible, similar to Flask. Here's a concise overview:
 
+```
 project_root/
 │
 ├── main.py               # Entry point of the application (defines the FastAPI app instance and routes).
@@ -32,6 +33,7 @@ project_root/
 ├── requirements.txt      # Lists all Python dependencies.
 ├── .env                  # Environment variables (optional, for sensitive data like API keys).
 └── config.py             # Configuration settings (e.g., database connections, environment-specific settings).
+```
 
 ## Key Notes:
    **Modularity** : Routes and logic are often split into routers/ or similar submodules for scalability.
