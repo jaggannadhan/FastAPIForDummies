@@ -35,10 +35,22 @@ project_root/
 └── config.py             # Configuration settings (e.g., database connections, environment-specific settings).
 ```
 
-## Key Notes:
-**Modularity** : Routes and logic are often split into routers/ or similar submodules for scalability.
-**Pydantic Models** : Used for request/response validation, typically stored in models/ or schemas/.
+## Key Note:
 **Minimalism** : Unlike Django, FastAPI doesn’t enforce a strict structure, so you can organize files as per your project’s needs.
 
 
-# The goal of this repo is to demonstrate the 2 main standout features of FastAPI 'Asynchronous programming' and 'WebSockets'.
+## The goal of this repo is to demonstrate the 2 main standout features of FastAPI 'Asynchronous programming' and 'WebSockets'.
+
+### Create venv (MACOS / LINUX SPECIFIC):
+```
+python3 -m venv .venv
+source .venv/bin/activate 
+```
+
+### Install FastAPI and Uvicorn:
+• FastAPI is the framework we’ll use to build the app.
+• Uvicorn is an ASGI server that will run the FastAPI app.
+```pip install fastapi uvicorn```
+
+
+
