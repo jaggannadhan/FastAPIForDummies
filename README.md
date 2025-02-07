@@ -18,3 +18,25 @@ FastAPI is a modern, high-performance Python web framework designed for building
 | **Learning Curve**        | Steep                           | Easy                             | Moderate                        |
 | **Best For**              | Full-stack web apps             | Small to medium projects         | High-performance APIs, microservices |
 
+# What is the file structure of FastAPI?
+The file structure of a FastAPI project is typically lightweight and flexible, similar to Flask. Here's a concise overview:
+
+project_root/
+│
+├── main.py               # Entry point of the application (defines the FastAPI app instance and routes).
+├── models/               # Pydantic models for request/response validation (optional, can be in main.py for small projects).
+├── routers/              # Modular route handlers (split routes into separate files for better organization).
+├── static/               # Static files (if serving frontend assets, optional).
+├── templates/            # HTML templates (if rendering pages, optional).
+├── tests/                # Unit and integration tests.
+├── requirements.txt      # Lists all Python dependencies.
+├── .env                  # Environment variables (optional, for sensitive data like API keys).
+└── config.py             # Configuration settings (e.g., database connections, environment-specific settings).
+
+## Key Notes:
+   **Modularity** : Routes and logic are often split into routers/ or similar submodules for scalability.
+   **Pydantic Models** : Used for request/response validation, typically stored in models/ or schemas/.
+   **Minimalism** : Unlike Django, FastAPI doesn’t enforce a strict structure, so you can organize files as per your project’s needs.
+
+
+
