@@ -76,13 +76,14 @@ Without the type hint, FastAPI won’t know that request is an instance of Reque
 • Incomplete or incorrect API documentation. <br/>
 
 
-### 1. Access Swagger UI
+### Inbuilt API documentation
+#### 1. Access Swagger UI
 When you run your FastAPI app, Swagger UI is available at:
 ```
 http://127.0.0.1:8000/docs
 ```
 
-### 2. Access ReDoc
+#### 2. Access ReDoc
 FastAPI also provides ReDoc (better readability), an alternative documentation interface, at:
 ```
 http://127.0.0.1:8000/redoc
