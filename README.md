@@ -36,9 +36,9 @@ project_root/
 ```
 
 ## Key Notes:
-   **Modularity** : Routes and logic are often split into routers/ or similar submodules for scalability.
-   **Pydantic Models** : Used for request/response validation, typically stored in models/ or schemas/.
-   **Minimalism** : Unlike Django, FastAPI doesn’t enforce a strict structure, so you can organize files as per your project’s needs.
+**Modularity** : Routes and logic are often split into routers/ or similar submodules for scalability.
+**Pydantic Models** : Used for request/response validation, typically stored in models/ or schemas/.
+**Minimalism** : Unlike Django, FastAPI doesn’t enforce a strict structure, so you can organize files as per your project’s needs.
 
 
-
+# The goal of this repo is to demonstrate the 2 main standout features of FastAPI 'Asynchronous programming' and 'WebSockets'.
