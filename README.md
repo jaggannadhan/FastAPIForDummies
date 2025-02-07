@@ -66,11 +66,11 @@ uvicorn main:app --reload --port 8000
 async def read_root(request: Request): # hint that request is of type Request
     return { "message": "Welcome to FastAPI Tutorial for Dummies"}
 ```
-FastAPI relies heavily on **type hints** to automatically infer things like:
-• How to parse incoming data.
-• What kind of request object is being passed (e.g., HTTP request, WebSocket, etc.).
-• How to generate automatic API documentation (Swagger UI, ReDoc).
-Without the type hint, FastAPI won’t know that request is an instance of Request. This can lead to:
-• Missing features like automatic request parsing.
-• Lack of proper validation or error handling.
-• Incomplete or incorrect API documentation.
+FastAPI relies heavily on **type hints** to automatically infer things like: <br/>
+• How to parse incoming data. <br/>
+• What kind of request object is being passed (e.g., HTTP request, WebSocket, etc.). <br/>
+• How to generate automatic API documentation (Swagger UI, ReDoc). <br/>
+Without the type hint, FastAPI won’t know that request is an instance of Request. This can lead to: <br/>
+• Missing features like automatic request parsing. <br/>
+• Lack of proper validation or error handling. <br/>
+• Incomplete or incorrect API documentation. <br/>
