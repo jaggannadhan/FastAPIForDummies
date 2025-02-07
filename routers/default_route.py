@@ -9,6 +9,10 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/")
 async def read_root(request: Request):
+    """
+    Landing Page:
+    Renders a simple HTML page to welcome users to the FastAPI tutorial.
+    """
     return templates.TemplateResponse("index.html", {"request": request})
 
 @router.get("/async-task")
