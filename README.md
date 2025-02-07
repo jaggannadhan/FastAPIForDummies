@@ -48,8 +48,8 @@ source .venv/bin/activate
 ```
 
 ### Install FastAPI and Uvicorn:
-• FastAPI is the framework we’ll use to build the app.
-• Uvicorn is an ASGI server that will run the FastAPI app.
+• FastAPI is the framework we’ll use to build the app. <br/>
+• Uvicorn is an ASGI server that will run the FastAPI app. <br/>
 ```
 pip install fastapi uvicorn
 ```
