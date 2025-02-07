@@ -50,7 +50,27 @@ source .venv/bin/activate
 ### Install FastAPI and Uvicorn:
 • FastAPI is the framework we’ll use to build the app.
 • Uvicorn is an ASGI server that will run the FastAPI app.
-```pip install fastapi uvicorn```
+```
+pip install fastapi uvicorn
+```
+
+### Run the App in local
+```
+uvicorn main:app --reload --port 8000
+```
 
 
-
+### What is Type Hinting?
+```
+@router.get("/")
+async def read_root(request: Request): # hint that request is of type Request
+    return { "message": "Welcome to FastAPI Tutorial for Dummies"}
+```
+FastAPI relies heavily on **type hints** to automatically infer things like:
+• How to parse incoming data.
+• What kind of request object is being passed (e.g., HTTP request, WebSocket, etc.).
+• How to generate automatic API documentation (Swagger UI, ReDoc).
+Without the type hint, FastAPI won’t know that request is an instance of Request. This can lead to:
+• Missing features like automatic request parsing.
+• Lack of proper validation or error handling.
+• Incomplete or incorrect API documentation.
