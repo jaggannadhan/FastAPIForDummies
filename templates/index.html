@@ -4,36 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FastAPI Tutorial</title>
-    <!-- <link rel="stylesheet" href="/static/css/index.css"> -->
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #333333;
-        }
-        p {
-            color: #666666;
-        }
-    </style>
+    <link rel="icon" type="image/x-icon" href="/static/images/favicon.svg">
+    <link rel="stylesheet" href="/static/css/index.css?v=1.001">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to FastAPI Tutorial for Dummies</h1>
-        <p>This is a simple landing page to demonstrate serving HTML with FastAPI.</p>
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="container">
+            <h1>Welcome to FastAPI Tutorial for Dummies</h1>
+            <p>This is a simple landing page to demonstrate serving HTML with FastAPI.</p>
+        </div>        
     </div>
+
+    <!-- Test Concurrency Button -->
+    <div class="features">
+        <button id="concurrency-btn" class="feature-button fb1">Concurrency</button>
+        <button id="web-socket-btn" class="feature-button fb2">Web Sockets</button>
+    </div>
+    
+
+    <div id="concurrency-mkdwn-cont">
+        <div class="markdown-box">
+            <header>
+                <h3>Send Single Request</h3>
+                <button class="code-btn" id="runSingleRequest">Run</button>
+                <button id="clear-btn1" class="code-btn">Clear</button>
+            </header>
+            
+            <pre><code class="python">
+import httpx
+
+async def send_single_request():
+async with httpx.AsyncClient() as client:
+    response = await client.get("http://127.0.0.1:8000/async-task")
+    print(response.json())
+            </code></pre>
+            <div id="results1" class="results hidden">
+                <h2>Concurrency Test Results</h2>
+                <pre id="results-text1"></pre>
+            </div>
+        </div>
+
+        <div class="markdown-box">
+            <header>
+                <h3>Send Bulk Requests</h3>
+                <button class="code-btn" id="runConcurrentRequest">Run</button>
+                <button id="clear-btn2" class="code-btn">Clear</button>
+            </header>
+            <pre><code class="python">
+import httpx
+import asyncio
+
+async def send_bulk_requests():
+async with httpx.AsyncClient() as client:
+    tasks = [client.get("http://127.0.0.1:8000/async-task") for _ in range(20)]
+    responses = await asyncio.gather(*tasks)
+    for response in responses:
+        print(response.json())
+            </code></pre>
+
+            <div id="results2" class="results hidden">
+                <h2>Concurrency Test Results</h2>
+                <pre id="results-text2"></pre>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Loader -->
+    <div id="loader" class="loader hidden"></div>
+
+    <script type="text/javascript" src="/static/scripts/index.js"></script>
+
 </body>
 </html>
