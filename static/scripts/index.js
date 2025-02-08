@@ -77,12 +77,14 @@ const concurrencyFeature = document.getElementById('concurrency-btn');
 const resetLayout = document.getElementById('reset');
 const landing = document.getElementById('landing');
 const concurrencyCodeLayout = document.getElementById('concurrency-mkdwn-cont');
-
+const concurrencyVisualLayout = document.getElementById('concurrency-visual-cont');
 
 function showLandingLayout() {
     landing.classList.remove('hidden');
     resetLayout.classList.add('hidden'); // Hide results
+
     concurrencyCodeLayout.classList.replace('show-flex', 'hidden');
+    concurrencyVisualLayout.classList.replace('show-flex', 'hidden');
 }
 
 function showConcurrencyLayout() {
@@ -90,6 +92,7 @@ function showConcurrencyLayout() {
     resetLayout.classList.remove('hidden');
 
     concurrencyCodeLayout.classList.replace('hidden', 'show-flex');
+    concurrencyVisualLayout.classList.replace('hidden', 'show-flex');
 }
 concurrencyFeature.addEventListener('click', showConcurrencyLayout);
 resetLayout.addEventListener('click', showLandingLayout);

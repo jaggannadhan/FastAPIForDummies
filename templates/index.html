@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/static/css/index.css?v=1.001">
 </head>
 <body>
-    
+     
     <button id="reset" class="reset-btn hidden">Back</button>
     <div id="landing" class="">
         <div class="intro">
@@ -18,7 +18,6 @@
             </div>        
         </div>
     
-        <!-- Test Concurrency Button -->
         <div class="features">
             <button id="concurrency-btn" class="feature-button fb1">Concurrency</button>
             <button id="web-socket-btn" class="feature-button fb2">Web Sockets</button>
@@ -72,12 +71,56 @@ async with httpx.AsyncClient() as client:
                 <pre id="results-text2"></pre>
             </div>
         </div>
+    </div> 
+
+    <div id="concurrency-visual-cont" class="concurrency-steps-container hidden">
+        <h1>FastAPI Asynchronous Request Processing</h1>
+        <div class="step">
+            <div class="box request-reception" id="step1">
+                <span class="label">Request Reception</span>
+                <span class="description">The ASGI server (like Uvicorn) accepts the incoming connection and parses the request.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="box task-creation" id="step2">
+                <span class="label">Task Creation</span>
+                <span class="description">FastAPI wraps the coroutine function for that route into a task.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="box event-loop-scheduling" id="step3">
+                <span class="label">Event Loop Scheduling</span>
+                <span class="description">The event loop schedules the task for execution.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="box event-loop-monitoring" id="step4">
+                <span class="label">Non-blocking Execution</span>
+                <span class="description">When the task encounters an await point, it yields control back to the event loop.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="box context-switching" id="step5">
+                <span class="label">Context Switching</span>
+                <span class="description">The event loop monitors the awaited operation and resumes the task upon completion.</span>
+            </div>
+            <div class="arrow">→</div>
+            <div class="box response-handling" id="step6">
+                <span class="label">Response Handling</span>
+                <span class="description">After the task completes, FastAPI constructs the response.</span>
+            </div>
+        </div>
+        <div class="step">
+            <div class="box response-transmission" id="step7">
+                <span class="label">Response Transmission</span>
+                <span class="description">The ASGI server sends the response back to the client.</span>
+            </div>
+        </div>
     </div>
     
     <!-- Loader -->
     <div id="loader" class="loader hidden"></div>
 
     <script type="text/javascript" src="/static/scripts/index.js"></script>
+    <script type="text/javascript" src="/static/scripts/concurrencyVisual.js"></script>
 
 </body>
 </html>
