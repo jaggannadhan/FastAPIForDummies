@@ -71,3 +71,26 @@ runSingleRequest.addEventListener('click', sendSingleRequest);
 runConcurrentRequest.addEventListener('click', sendConcurrentRequests);
 clearBtn1.addEventListener('click', clearResults1);
 clearBtn2.addEventListener('click', clearResults2);
+
+
+const concurrencyFeature = document.getElementById('concurrency-btn');
+const resetLayout = document.getElementById('reset');
+const landing = document.getElementById('landing');
+const concurrencyCodeLayout = document.getElementById('concurrency-mkdwn-cont');
+
+
+function showLandingLayout() {
+    landing.classList.remove('hidden');
+    resetLayout.classList.add('hidden'); // Hide results
+    concurrencyCodeLayout.classList.replace('show-flex', 'hidden');
+}
+
+function showConcurrencyLayout() {
+    landing.classList.add('hidden'); // Hide results
+    resetLayout.classList.remove('hidden');
+
+    concurrencyCodeLayout.classList.replace('hidden', 'show-flex');
+}
+concurrencyFeature.addEventListener('click', showConcurrencyLayout);
+resetLayout.addEventListener('click', showLandingLayout);
+

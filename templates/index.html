@@ -8,22 +8,26 @@
     <link rel="stylesheet" href="/static/css/index.css?v=1.001">
 </head>
 <body>
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="container">
-            <h1>Welcome to FastAPI Tutorial for Dummies</h1>
-            <p>This is a simple landing page to demonstrate serving HTML with FastAPI.</p>
-        </div>        
-    </div>
-
-    <!-- Test Concurrency Button -->
-    <div class="features">
-        <button id="concurrency-btn" class="feature-button fb1">Concurrency</button>
-        <button id="web-socket-btn" class="feature-button fb2">Web Sockets</button>
+    
+    <button id="reset" class="reset-btn hidden">Back</button>
+    <div id="landing" class="">
+        <div class="intro">
+            <div class="container">
+                <h1>Welcome to FastAPI Tutorial for Dummies</h1>
+                <p>This is a simple landing page to demonstrate Asynchronous behaviour and WebSockets in FastAPI.</p>
+            </div>        
+        </div>
+    
+        <!-- Test Concurrency Button -->
+        <div class="features">
+            <button id="concurrency-btn" class="feature-button fb1">Concurrency</button>
+            <button id="web-socket-btn" class="feature-button fb2">Web Sockets</button>
+        </div>
     </div>
     
+    
 
-    <div id="concurrency-mkdwn-cont">
+    <div id="concurrency-mkdwn-cont" class="hidden">
         <div class="markdown-box">
             <header>
                 <h3>Send Single Request</h3>
