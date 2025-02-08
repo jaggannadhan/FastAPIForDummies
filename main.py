@@ -1,7 +1,9 @@
 from fastapi import FastAPI
-from routers.default_route import router as default_route
-from fastapi.staticfiles import StaticFiles
+from routers.default_route import default_router
+from routers.connections_route import connections_router
+from routers.iframe_chat import iframe_router
 
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI(
     title="FastAPI Tutorial for Dummies",
@@ -10,4 +12,6 @@ app = FastAPI(
 )
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
-app.include_router(default_route)
+app.include_router(default_router)
+app.include_router(connections_router)
+app.include_router(iframe_router)

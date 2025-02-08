@@ -216,6 +216,7 @@ p {
     .arrow {
         margin: 0 20px;
         font-size: 20px;
+        color: white;
     }
     .box {
         padding: 15px 30px;
@@ -272,4 +273,22 @@ p {
         transform: scale(1);
         box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
     }
+}
+
+
+/*************** WebSocket iFrame  *******************/
+.wic-right {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 30%;
+    height: 70%;
+}
+
+.wic-left {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 30%;
+    height: 70%;
 }

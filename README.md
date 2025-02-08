@@ -124,3 +124,4 @@ async def read_item(q: ItemQueryParams = Query(None)):
 
 • If the validation succeeds: Pass the validated values to the function. <br/>
 • If the validation fails: Return an appropriate error response (e.g., 422 Unprocessable Entity) with details about the validation errors. <br/>
+

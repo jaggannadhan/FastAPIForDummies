@@ -115,12 +115,24 @@ async with httpx.AsyncClient() as client:
             </div>
         </div>
     </div>
-    
+
+
+    <!-- WebSockets Layout -->
+    <div id="websocket-iframe-container1" class="wic-left hidden">
+        <iframe id="websocket-iframe" src="http://localhost:8000/iframe-chat" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+
+    <div id="websocket-iframe-container2" class="wic-right hidden">
+        <iframe id="websocket-iframe" src="http://localhost:8080/iframe-chat" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+
+
     <!-- Loader -->
     <div id="loader" class="loader hidden"></div>
 
     <script type="text/javascript" src="/static/scripts/index.js"></script>
     <script type="text/javascript" src="/static/scripts/concurrencyVisual.js"></script>
+    <script type="text/javascript" src="/static/scripts/webSocket.js"></script>
 
 </body>
 </html>
