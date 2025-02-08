@@ -94,8 +94,7 @@ http://127.0.0.1:8000/redoc
 Pydantic is a Python library for data parsing and validation. It allows you to define data models using Python classes, and it automatically validates the data against the defined schema.
 
 ### How Pydantic is used in FastAPI:
-#### 1. Data Validation for Request Bodies
-#### 2. Data Serialization for Responses
+#### 1. Data Validation for Request Bodies and Data Serialization for Responses
 ```
 from pydantic import BaseModel
 
@@ -110,7 +109,7 @@ async def create_item(item: Item):
     return item
 ```
 
-#### 3. Data Validation for Query Parameters
+#### 2. Data Validation for Query Parameters
 ```
 from pydantic import BaseModel, Query
 
