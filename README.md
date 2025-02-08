@@ -123,5 +123,5 @@ async def read_item(q: ItemQueryParams = Query(None)):
     return {"message": "Query params parsed successfully"}
 ```
 
-If the validation succeeds: Pass the validated values to the function.
-If the validation fails: Return an appropriate error response (e.g., 422 Unprocessable Entity) with details about the validation errors.
+• If the validation succeeds: Pass the validated values to the function. <br/>
+• If the validation fails: Return an appropriate error response (e.g., 422 Unprocessable Entity) with details about the validation errors. <br/>
