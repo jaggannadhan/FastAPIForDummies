@@ -89,3 +89,39 @@ FastAPI also provides ReDoc (better readability), an alternative documentation i
 http://127.0.0.1:8000/redoc
 ```
 
+
+### What is Pydantic?
+Pydantic is a Python library for data parsing and validation. It allows you to define data models using Python classes, and it automatically validates the data against the defined schema.
+
+### How Pydantic is used in FastAPI:
+#### 1. Data Validation for Request Bodies
+#### 2. Data Serialization for Responses
+```
+from pydantic import BaseModel
+
+class Item(BaseModel):
+    name: str
+    description: str | None = None
+    price: float
+    tax: float = 10.5
+
+@app.post("/items/")
+async def create_item(item: Item):
+    return item
+```
+
+#### 3. Data Validation for Query Parameters
+```
+from pydantic import BaseModel, Query
+
+class ItemQueryParams(BaseModel):
+    skip: int = Query(0, ge=0)
+    limit: int = Query(10, gt=0, le=100)
+
+@app.get("/items/")
+async def read_item(q: ItemQueryParams = Query(None)):
+    return {"message": "Query params parsed successfully"}
+```
+
+If the validation succeeds: Pass the validated values to the function.
+If the validation fails: Return an appropriate error response (e.g., 422 Unprocessable Entity) with details about the validation errors.
