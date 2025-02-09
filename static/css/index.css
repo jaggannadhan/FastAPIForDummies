@@ -147,7 +147,7 @@ p {
 #concurrency-mkdwn-cont {
     background-color: inherit;
     position: fixed;
-    bottom: -3vw;
+    bottom: -2vw;
     width: 100%;
     justify-content: center;
     z-index: 2;
@@ -277,7 +277,7 @@ p {
 
 
 /*************** WebSocket iFrame  *******************/
-#websocket-iframe-container {
+#websocket-chat-window {
     position: fixed;
     right: 0;
     bottom: 0;

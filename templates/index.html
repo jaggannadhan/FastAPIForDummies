@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.svg">
     <link rel="stylesheet" href="/static/css/index.css?v=1.001">
     <link rel="stylesheet" href="/static/css/iframe_chat.css">
+    <link rel="stylesheet" href="/static/css/websocket_layout.css">
 </head>
 <body>
      
@@ -56,8 +57,7 @@ async with httpx.AsyncClient() as client:
                 <button id="clear-btn2" class="code-btn">Clear</button>
             </header>
             <pre><code class="python">
-import httpx
-import asyncio
+import httpx, asyncio
 
 async def send_bulk_requests():
 async with httpx.AsyncClient() as client:
@@ -119,7 +119,27 @@ async with httpx.AsyncClient() as client:
 
 
     <!-- WebSockets Layout -->
-    <div id="websocket-iframe-container" class="hidden">
+    <div id="websocket-description" class="hidden">
+        <h2>What are WebSockets?</h2>
+        <p>
+            WebSockets provide a persistent, full-duplex communication channel between a client and a server. Unlike traditional HTTP requests, which are stateless and require a new connection for each request, WebSockets allow real-time, bidirectional data exchange over a single, long-lived connection.
+        </p>
+        <p>
+            In FastAPI, WebSockets are implemented using the <code>WebSocket</code> class from the <code>fastapi</code> module. This makes it easy to build real-time applications like chat apps, live notifications, or collaborative tools.
+        </p>
+        <p>
+            Key features of WebSockets in FastAPI:
+        </p>
+        <ul>
+            <li><strong>Real-Time Communication:</strong> Data can be sent and received instantly without polling.</li>
+            <li><strong>Efficient:</strong> Reduces overhead compared to repeated HTTP requests.</li>
+            <li><strong>Easy Integration:</strong> FastAPI provides built-in support for WebSockets with minimal setup.</li>
+        </ul>
+        <p>
+            <b>To demonstrate WebSockets, run this app on 2 different port <code>8000</code> and <code>80<u>8</u>0</code> and start chatting!.</b>
+        </p>
+    </div>
+    <div id="websocket-chat-window" class="hidden">
         <div class="chat-container">
             <h3>Running on port: <em id="port-id"></em></h3>
             <!-- Message View -->

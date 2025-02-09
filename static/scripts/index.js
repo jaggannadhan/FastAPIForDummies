@@ -81,7 +81,8 @@ const concurrencyCodeLayout = document.getElementById('concurrency-mkdwn-cont');
 const concurrencyVisualLayout = document.getElementById('concurrency-visual-cont');
 
 const websocketFeature = document.getElementById("web-socket-btn");
-const chatContainer = document.getElementById('websocket-iframe-container');
+const chatContainer = document.getElementById('websocket-chat-window');
+const websocketDescription = document.getElementById("websocket-description");
 
 
 function showLandingLayout() {
@@ -92,6 +93,7 @@ function showLandingLayout() {
     concurrencyVisualLayout.classList.replace('show-flex', 'hidden');
 
     chatContainer.classList.add('hidden');
+    websocketDescription.classList.add('hidden');
 }
 
 function showConcurrencyLayout() {
@@ -107,6 +109,7 @@ function showWebsocketLayout() {
     resetLayout.classList.remove('hidden');
 
     chatContainer.classList.remove('hidden');
+    websocketDescription.classList.remove('hidden');
 }
 
 concurrencyFeature.addEventListener('click', showConcurrencyLayout);

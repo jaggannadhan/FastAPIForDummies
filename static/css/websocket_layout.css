@@ -1,0 +1,35 @@
+#websocket-description {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    text-align: left;
+    width: 55%;
+    margin-left: 5%;
+
+    h2 {
+        margin-top: 0;
+        color: #333333;
+    }
+
+    p {
+        color: #666666;
+        line-height: 1.6;
+        font-size: large;
+    }
+
+    ul {
+        padding-left: 20px;
+        color: #666666;
+    }
+    
+
+    code {
+        background: #f4f4f9;
+        padding: 2px 5px;
+        border-radius: 5px;
+        font-size: 14px;
+        color: red;
+    }
+}

@@ -155,3 +155,13 @@ async def log_data(name: str):
 
 ```
 
+## Event Loop - #### The fundamental concept in asynchronous programming in FastAPI
+### What is an Event Loop?
+Event loop allows a program to perform non-blocking operations by continuously checking for tasks that are ready to run and executing them.
+
+### How Does It Work?
+• The event loop manages a queue of tasks (also called coroutines or callbacks). <br/>
+• When a task is waiting for an operation (e.g., I/O, network requests, or timers), the event loop pauses that task and switches to another task that is ready to run. <br/>
+• Once the waiting operation completes, the event loop resumes the paused task from where it left off. <br/>
+• This process enables efficient multitasking without blocking the execution of other tasks. <br/>
+
