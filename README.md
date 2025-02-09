@@ -155,7 +155,7 @@ async def log_data(name: str):
 
 ```
 
-## Event Loop - The fundamental concept in asynchronous programming in FastAPI
+## Event Loop - The fundamental concept in asynchronous programming!
 ### What is an Event Loop?
 Event loop allows a program to perform non-blocking operations by continuously checking for tasks that are ready to run and executing them.
 
