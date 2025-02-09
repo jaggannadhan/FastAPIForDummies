@@ -176,21 +176,15 @@ from contextlib import asynccontextmanager
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    try: 
-        # Startup code
-        await initialize_database() # Create database
-        app.state.background_task = asyncio.create_task(periodic_cleanup())  # Start background task
-    
-        yield  # This is where FastAPI runs
-    except Exception as e:
-        logger.error(f"Error during startup: {e}")
-        raise
-    finally:
-        # Shutdown code
-        await close_database_connection() # Close all DB connections
-        app.state.background_task.cancel() # Cancel background task
-    except Exception as e:
-            logger.error(f"Error during shutdown: {e}")
+    # Startup code
+    await initialize_database() # Create database
+    app.state.background_task = asyncio.create_task(periodic_cleanup())  # Start background task
+
+    yield  # This is where FastAPI runs
+   
+    # Shutdown code
+    await close_database_connection() # Close all DB connections
+    app.state.background_task.cancel() # Cancel background task
 
 app = FastAPI(lifespan=lifespan)
 ```
