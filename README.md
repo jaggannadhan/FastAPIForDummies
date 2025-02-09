@@ -146,7 +146,7 @@ logger = logging.getLogger(__name__)
 Now you can use this logger in other modules
 ```
 import logging
-logger = logging.getLogger(__name__) 
+logger = logging.getLogger(__name__) # This is logger configured in the main app
 
 @app.get("/log")
 async def log_data(name: str):
@@ -154,3 +154,4 @@ async def log_data(name: str):
     return {"msg": "ok"}
 
 ```
+
