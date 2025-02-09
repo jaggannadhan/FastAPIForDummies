@@ -202,3 +202,75 @@ async def shutdown_event():
     print("Shutting down...")
     await close_database_connection()
 ```
+
+
+## State Management
+State management in FastAPI allows you to share and persist data across different parts of your application. 
+### Implementation Methods 
+#### 1. Using the *app.state* for application-wide constants and resources
+```
+app = FastAPI()
+app.state.db = YourDatabase()
+app.state.counter = 0
+
+@app.get("/")
+async def read_state():
+    app.state.counter += 1
+    return {"counter": app.state.counter}
+```
+#### 2. Session Management using *fastapi_sessions*
+```
+from fastapi_sessions import SessionMiddleware, Session
+from fastapi import Depends
+
+app.add_middleware(SessionMiddleware, secret_key="your-secret-key")
+
+@app.get("/set-session")
+async def set_session(session: Session = Depends()):
+    session["user_id"] = "123"
+    return {"message": "Session set"}
+
+@app.get("/get-session")
+async def get_session(session: Session = Depends()):
+    return {"user_id": session.get("user_id")}
+```
+You can also use Depends for DB management tools like Redis and SQLAlchemy
+```
+import aioredis
+from fastapi import Depends
+
+async def get_redis():
+    redis = await aioredis.create_redis_pool('redis://localhost')
+    try:
+        yield redis
+    finally:
+        redis.close()
+        await redis.wait_closed()
+
+@app.get("/cached-data/{key}")
+async def get_cached_data(key: str, redis: aioredis.Redis = Depends(get_redis)):
+    cached_value = await redis.get(key)
+    if cached_value:
+        return {"value": cached_value.decode()}
+    return {"value": None}
+```
+#### 2. Thread-Safe State Management using *Lock*
+```
+from threading import Lock
+
+class ThreadSafeState:
+    def __init__(self):
+        self._counter = 0
+        self._lock = Lock()
+    
+    def increment(self):
+        with self._lock:
+            self._counter += 1
+            return self._counter
+
+safe_state = ThreadSafeState()
+
+@app.get("/increment")
+async def increment_counter():
+    return {"count": safe_state.increment()}
+```
