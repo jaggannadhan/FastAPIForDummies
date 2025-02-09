@@ -165,3 +165,46 @@ Event loop allows a program to perform non-blocking operations by continuously c
 • Once the waiting operation completes, the event loop resumes the paused task from where it left off. <br/>
 • This process enables efficient multitasking without blocking the execution of other tasks. <br/>
 
+
+## Lifespan Events
+Lifespan events in FastAPI allow you to define actions that should occur during application startup and shutdown. These events are particularly useful for managing resources like database connections, external services, or cache systems.
+
+### Implementation Methods 
+#### 1. Using the *lifespan* Context Manager
+```
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    try: 
+        # Startup code
+        await initialize_database() # Create database
+        app.state.background_task = asyncio.create_task(periodic_cleanup())  # Start background task
+    
+        yield  # This is where FastAPI runs
+    except Exception as e:
+        logger.error(f"Error during startup: {e}")
+        raise
+    finally:
+        # Shutdown code
+        await close_database_connection() # Close all DB connections
+        app.state.background_task.cancel() # Cancel background task
+    except Exception as e:
+            logger.error(f"Error during shutdown: {e}")
+
+app = FastAPI(lifespan=lifespan)
+```
+#### 2. Using *Event Handlers* (Legacy Approach)
+```
+app = FastAPI()
+
+@app.on_event("startup")
+async def startup_event():
+    print("Starting up...")
+    await initialize_database()
+
+@app.on_event("shutdown")
+async def shutdown_event():
+    print("Shutting down...")
+    await close_database_connection()
+```
