@@ -1,4 +1,4 @@
-# FastAPIForDummies
+# FastAPI For Dummies - 101
 A hands-on guide to FastAPI for beginners. Explore the code, run the examples, and start building your own APIs! 
 Contributions and feedback are welcome. 
 
