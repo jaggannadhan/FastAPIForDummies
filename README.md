@@ -276,7 +276,7 @@ async def increment_counter():
     return {"count": safe_state.increment()}
 ```
 
-## FastAPI Takeaway List
+## Takeaway List
 1. **Asynchronous Programming:**
 Use async/await for non-blocking, high-performance APIs.
 Ideal for I/O-bound tasks like database queries and HTTP requests.
