@@ -277,34 +277,34 @@ async def increment_counter():
 ```
 
 ## FastAPI Takeaway List
-1. Asynchronous Programming:
+1. **Asynchronous Programming:**
 Use async/await for non-blocking, high-performance APIs.
 Ideal for I/O-bound tasks like database queries and HTTP requests.
-2. WebSockets:
+2. **WebSockets:**
 Enables real-time, bidirectional communication (e.g., chat apps).
-3. Automatic API Documentation:
+3. **Automatic API Documentation:**
 Swagger UI (/docs) and ReDoc (/redoc) provide interactive API docs.
-4. Type Hints & Pydantic Models:
+4. **Type Hints & Pydantic Models:**
 Validate request/response data with Python type hints and Pydantic.
-5. Dependency Injection:
+5. **Dependency Injection:**
 Share reusable logic (e.g., DB connections, auth) across routes.
-6. Routing & Modularization:
+6. **Routing & Modularization:**
 Organize routes using APIRouter for scalability.
-7. Error Handling:
+7. **Error Handling:**
 Use HTTPException for standardized error responses.
-8. Background Tasks:
+8. **Background Tasks:**
 Run long-running tasks after sending a response.
-9. Static Files & Templating:
+9. **Static Files & Templating:**
 Serve static assets and render HTML templates with ease.
-10. Security:
+10. **Security:**
 Built-in support for OAuth2, JWT, API keys, and more.
-11. Performance:
+11. **Performance:**
 FastAPI is one of the fastest Python frameworks, leveraging ASGI and async capabilities.
-12. Testing:
+12. **Testing:**
 Use TestClient for easy API testing with pytest.
-13. Event-Driven Architecture:
+13. **Event-Driven Architecture:**
 Use lifespan events (startup, shutdown) for app initialization and cleanup.
-14. OpenAPI Compliance:
+14. **OpenAPI Compliance:**
 Automatically generates OpenAPI and JSON Schema documentation.
-15. Scalability:
+15. **Scalability:**
 Modular design and async support make it suitable for small to large applications.
