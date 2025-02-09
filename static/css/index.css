@@ -277,17 +277,9 @@ p {
 
 
 /*************** WebSocket iFrame  *******************/
-.wic-right {
+#websocket-iframe-container {
     position: fixed;
     right: 0;
-    bottom: 0;
-    width: 30%;
-    height: 70%;
-}
-
-.wic-left {
-    position: fixed;
-    left: 0;
     bottom: 0;
     width: 30%;
     height: 70%;

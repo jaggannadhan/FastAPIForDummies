@@ -6,6 +6,7 @@
     <title>FastAPI Tutorial</title>
     <link rel="icon" type="image/x-icon" href="/static/images/favicon.svg">
     <link rel="stylesheet" href="/static/css/index.css?v=1.001">
+    <link rel="stylesheet" href="/static/css/iframe_chat.css">
 </head>
 <body>
      
@@ -118,14 +119,18 @@ async with httpx.AsyncClient() as client:
 
 
     <!-- WebSockets Layout -->
-    <div id="websocket-iframe-container1" class="wic-left hidden">
-        <iframe id="websocket-iframe" src="http://localhost:8000/iframe-chat" width="100%" height="100%" frameborder="0"></iframe>
+    <div id="websocket-iframe-container" class="hidden">
+        <div class="chat-container">
+            <h3>Running on port: <em id="port-id"></em></h3>
+            <!-- Message View -->
+            <div id="message-view" class="message-view"></div>
+    
+            <div class="input-container">
+                <input type="text" id="message-input" placeholder="Type your message..." />
+                <button id="send-btn">Send</button>
+            </div>
+        </div>
     </div>
-
-    <div id="websocket-iframe-container2" class="wic-right hidden">
-        <iframe id="websocket-iframe" src="http://localhost:8080/iframe-chat" width="100%" height="100%" frameborder="0"></iframe>
-    </div>
-
 
     <!-- Loader -->
     <div id="loader" class="loader hidden"></div>
@@ -133,6 +138,7 @@ async with httpx.AsyncClient() as client:
     <script type="text/javascript" src="/static/scripts/index.js"></script>
     <script type="text/javascript" src="/static/scripts/concurrencyVisual.js"></script>
     <script type="text/javascript" src="/static/scripts/webSocket.js"></script>
+    <script type="text/javascript" src="/static/scripts/iframe_chat.js"></script>
 
 </body>
 </html>

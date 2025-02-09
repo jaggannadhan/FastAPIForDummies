@@ -125,3 +125,32 @@ async def read_item(q: ItemQueryParams = Query(None)):
 • If the validation succeeds: Pass the validated values to the function. <br/>
 • If the validation fails: Return an appropriate error response (e.g., 422 Unprocessable Entity) with details about the validation errors. <br/>
 
+### Logging
+In your main app configure the logger
+```
+import logging
+
+# Configure logging globally
+logging.basicConfig(
+    level=logging.INFO,  # Set the log level (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",  # Log format
+    handlers=[
+        logging.StreamHandler(),  # Log to the console
+        # Uncomment the next line to log to a file
+        # logging.FileHandler("app.log")
+    ]
+)
+
+logger = logging.getLogger(__name__) 
+```
+Now you can use this logger in other modules
+```
+import logging
+logger = logging.getLogger(__name__) 
+
+@app.get("/log")
+async def log_data(name: str):
+    logger.info(f"This is how you log your data: {name}")
+    return {"msg": "ok"}
+
+```

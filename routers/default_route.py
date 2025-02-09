@@ -2,11 +2,13 @@ from fastapi import APIRouter, Request, Form
 from fastapi.templating import Jinja2Templates
 import asyncio
 import httpx
+import logging
 
 default_router = APIRouter()
-
+logger = logging.getLogger(__name__)
 # Configure Jinja2Templates to look for HTML files in the "templates" folder
 templates = Jinja2Templates(directory="templates")
+
 
 @default_router.get("/")
 async def read_root(request: Request):

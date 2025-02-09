@@ -4,7 +4,7 @@ const messageInput = document.getElementById('message-input');
 const sendBtn = document.getElementById('send-btn');
 
 // Establish WebSocket connection
-const socket = new WebSocket('ws://127.0.0.1:8080/send');
+const iframe_socket = new WebSocket('ws://localhost:8080/send');
 
 // Function to add a message to the message view
 function addMessage(message, isSelf = false) {
@@ -16,19 +16,19 @@ function addMessage(message, isSelf = false) {
 }
 
 // Handle incoming messages from the server
-socket.onmessage = function (event) {
+iframe_socket.onmessage = function (event) {
     const data = JSON.parse(event.data);
     addMessage(data.message);
 };
 
 // Handle connection errors
-socket.onerror = function (error) {
-    console.error('WebSocket error:', error);
+iframe_socket.onerror = function (error) {
+    console.error('iFrame WebSocket error:', error);
 };
 
 // Handle connection close
-socket.onclose = function () {
-    console.log('WebSocket connection closed');
+iframe_socket.onclose = function () {
+    console.log('iFrame WebSocket connection closed');
 };
 
 // Send button click event
@@ -36,7 +36,7 @@ sendBtn.addEventListener('click', () => {
     const message = messageInput.value.trim();
     if (message) {
         // Send the message to the server
-        socket.send(JSON.stringify({ message }));
+        iframe_socket.send(JSON.stringify({ message }));
         addMessage(message, true); // Display the sent message locally
         messageInput.value = ''; // Clear the input field
     }
